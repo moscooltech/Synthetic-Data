@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Flask App{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class="display-4">Welcome to Flask App</h1>
+            <p class="lead">A modern web application built with Flask</p>
+            <hr class="my-4">
+            <p>Get started by exploring our features or creating an account.</p>
+            <div class="mt-4">
+                <a class="btn btn-primary btn-lg me-2" href="{{ url_for('auth.register') }}" role="button">Get Started</a>
+                <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('main.dashboard') }}" role="button">Learn More</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Feature One</h5>
+                    <p class="card-text">Description of the first amazing feature of this application.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Feature Two</h5>
+                    <p class="card-text">Description of the second amazing feature of this application.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Feature Three</h5>
+                    <p class="card-text">Description of the third amazing feature of this application.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

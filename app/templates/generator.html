@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Generator - Flask App{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Generator</h2>
+            <p class="lead">Generate content using this tool</p>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Configuration</h5>
+                </div>
+                <div class="card-body">
+                    <form id="generatorForm">
+                        <div class="mb-3">
+                            <label for="inputText" class="form-label">Input Text</label>
+                            <textarea class="form-control" id="inputText" name="inputText" rows="3" placeholder="Enter your input here..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="options" class="form-label">Options</label>
+                            <select class="form-select" id="options" name="options">
+                                <option selected>Choose an option...</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1" max="10">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Generate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Output</h5>
+                </div>
+                <div class="card-body">
+                    <div id="output" class="alert alert-info">
+                        Generated content will appear here...
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>History</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group" id="history">
+                        <li class="list-group-item">No history yet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('generatorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const inputText = document.getElementById('inputText').value;
+    const output = document.getElementById('output');
+    output.textContent = 'Generated: ' + inputText;
+});
+</script>
+{% endblock %}
